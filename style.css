@@ -1,22 +1,22 @@
 body {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
 
 header {
   margin-bottom: 40px;
 }
 
-#navbar{
-    display: flex;
-    justify-content: space-evenly;
-    width: 30%;
+#navbar {
+  display: flex;
+  justify-content: space-evenly;
+  width: 30%;
 }
 
-span.heading {
-    min-width: 15px;
+span {
+  min-width: 15px;
 }
 
 .dropdown-check-list {
@@ -25,10 +25,10 @@ span.heading {
   user-select: none;
 }
 .dropdown-check-list:focus {
-    outline: none;
+  outline: none;
 }
 .anchor::selection {
-    background-color: none;
+  background-color: none;
 }
 
 .dropdown-check-list .anchor {
@@ -81,27 +81,28 @@ span.heading {
 }
 
 .content {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    border-bottom: 1px solid black;
-    margin: auto;
-    min-width: 150px;
-    max-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-bottom: 1px solid black;
+  margin: auto;
+  min-width: 150px;
+  max-width: 200px;
 }
 
-.boxes{
-    text-align: center;
-    border: 1px solid black;
-    height: 20px;
-    width: 20px;
+.boxes {
+  text-align: center;
+  border: 1px solid black;
+  height: 20px;
+  width: 20px;
 }
 
 .chars {
-    height: 20px;
-    width: 20px;
+  height: 20px;
+  width: 20px;
 }
 
 #inputValue {
-    text-align: center;
+  display: flex;
+  text-align: center;
 }

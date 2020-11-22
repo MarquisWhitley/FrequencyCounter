@@ -10,22 +10,21 @@ const spec = document.querySelector('.specialChars');
 const com = document.querySelector('.commas');
 const space = document.querySelector('.spaces');
 const punc = document.querySelector('.punctuation');
-const lowerCase = document.querySelector('.lowerCaseLetters')
-const caseSens = document.querySelector('#case-sensitive')
+const lowerCase = document.querySelector('.lowerCaseLetters');
+const caseSens = document.querySelector('#case-sensitive');
 
-caseSens.addEventListener('input', () => caseSensCheck())
-spec.addEventListener('input', () => specCheck()); 
+caseSens.addEventListener('input', () => caseSensCheck());
+spec.addEventListener('input', () => specCheck());
 
 const caseSensCheck = () => {
-  if(caseSens.checked){
+  if (caseSens.checked) {
     lowerCase.checked = false;
     lowerCase.disabled = true;
-  }
-  else {
+  } else {
     lowerCase.disabled = false;
     lowerCase.checked = true;
   }
-}
+};
 
 const specCheck = () => {
   if (!spec.checked) {
@@ -82,14 +81,14 @@ let collection = {};
 let collected = {};
 
 const areThereDuplicates = async (string, delay) => {
-  if (Object.keys(collection).length !== 0) return;
-
   string = string.trim();
   input.value = input.value.trim();
-  
-  if(caseSens.checked){
-    string = string.toUpperCase()
-    input.value = input.value.toUpperCase()
+  if (string.length === 0) return;
+  if (Object.keys(collection).length !== 0) return;
+
+  if (caseSens.checked) {
+    string = string.toUpperCase();
+    input.value = input.value.toUpperCase();
   }
 
   for (let i = 0; i < include.length; i++) {
@@ -98,7 +97,6 @@ const areThereDuplicates = async (string, delay) => {
       input.value = string.replace(regex[i], '');
     }
   }
-console.log(input.value)
   header.innerHTML = input.value;
   const headerArr = header.innerText.split('');
   // Adds an individual class to each letter in the input.
@@ -117,29 +115,29 @@ console.log(input.value)
     }
     for (let val in collection) {
       // This loops gives us the ability to animate the "display of values" (1 by 1) on the page as we are going through the values of the object
-      const exclamationMark = val === '!' ? 'Punctuation' : val;
       let content = document.createElement('div');
       let letter = document.createElement('p');
       let box = document.createElement('div');
       letter.innerText = val;
       box.innerHTML = 0;
       container.appendChild(content).className = 'content';
-      content.appendChild(letter).className = `letter${exclamationMark} chars`;
-      content.appendChild(box).className = `box${exclamationMark} boxes`;
+      content.appendChild(letter).className = `letter${val} chars`;
+      content.appendChild(box).className = `box${val} boxes`;
       await new Promise((resolve, reject) => setTimeout(resolve, delay / 4));
     }
     reset.style.visibility = 'visible';
     for (let val in string) {
       const value = string[val];
-      const exclamationMark = value === '!' ? 'Punctuation' : `${value}`;
       // Need this logic so we won't get undefined for our results.
+      // collected[value] = (collected[value] || 0) + 1;
       collected[value] = (collected[value] || 0) + 1;
-      let letter = document.getElementsByClassName(`letter${exclamationMark}`);
-      const num = document.getElementsByClassName(`box${exclamationMark}`);
+      let letter = document.getElementsByClassName(`letter${value}`);
+      const num = document.getElementsByClassName(`box${value}`);
       const headingLetter = document.getElementsByClassName(`heading`);
       letter[0].style.backgroundColor = 'blue';
       num[0].innerHTML = collected[value];
-      headingLetter[val].style.color = 'green';
+      headingLetter[val].style.color = 'white';
+      headingLetter[val].style.backgroundColor = 'green';
       await new Promise((resolve, reject) => setTimeout(resolve, delay));
       letter[0].style.backgroundColor = 'white';
       await new Promise((resolve, reject) => setTimeout(resolve, delay / 2.5));

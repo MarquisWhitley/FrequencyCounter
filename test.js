@@ -52,6 +52,7 @@ const spaces = /\s+/g;
 const commas = /[,;]+/g;
 const punctuation = /[.!?\\]+/g;
 const specialChars = /[\W|_]+/g;
+const multiSpace = /\s{2,}/g;
 
 const regex = [
   capitalLetters,
@@ -83,6 +84,8 @@ let collected = {};
 const areThereDuplicates = async (string, delay) => {
   string = string.trim();
   input.value = input.value.trim();
+  string = string.replace(multiSpace, ' ');
+  input.value = string.replace(multiSpace, ' ');
   if (string.length === 0) return;
   if (Object.keys(collection).length !== 0) return;
 
@@ -115,6 +118,8 @@ const areThereDuplicates = async (string, delay) => {
     }
     for (let val in collection) {
       // This loops gives us the ability to animate the "display of values" (1 by 1) on the page as we are going through the values of the object
+      const value = collection[val];
+      console.log(value, val);
       let content = document.createElement('div');
       let letter = document.createElement('p');
       let box = document.createElement('div');
@@ -132,6 +137,7 @@ const areThereDuplicates = async (string, delay) => {
       // collected[value] = (collected[value] || 0) + 1;
       collected[value] = (collected[value] || 0) + 1;
       let letter = document.getElementsByClassName(`letter${value}`);
+      // console.log(value);
       const num = document.getElementsByClassName(`box${value}`);
       const headingLetter = document.getElementsByClassName(`heading`);
       letter[0].style.backgroundColor = 'blue';

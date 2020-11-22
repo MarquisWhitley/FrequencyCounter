@@ -5,6 +5,9 @@ body {
     align-items: center;
 }
 
+header {
+  margin-bottom: 40px;
+}
 
 #navbar{
     display: flex;

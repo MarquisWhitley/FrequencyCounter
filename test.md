@@ -1,0 +1,1 @@
+Loop through all of the Includes checkbox and what ever items are left unchecked we will initiate the string.replace(regex, '') while the regex would be the name of the item that is left unchecked for every item that is checked we will do nothing.

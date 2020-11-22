@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Test</title>
+  </head>
+  <body>
+    <div id="navbar">
+      <div class="input-container">
+        <label for="word">Word: </label>
+        <input type="text" name="word" id="word" />
+      </div>
+
+      <div class="buttons">
+        <button id="start" class="btn">Start</button>
+        <button id="reset" class="btn">Reset</button>
+        <label for="case"> Case Sensitive</label>
+        <input type="checkbox" id="case-sensitive" name="case" />
+        <br />
+        <br />
+        <label for="speed">Speed: </label>
+        <input type="range" name="speed" id="speed" min="50" max="300" />
+      </div>
+
+      <div class="include-container">
+        <div id="list1" class="dropdown-check-list" tabindex="100">
+          <span class="anchor">Include</span>
+          <ul class="items">
+            <li>
+              <input type="checkbox" id='includes' class="capitalLetters" checked />Capital
+              Letters
+            </li>
+            <li>
+              <input type="checkbox" id='includes' class="lowerCaseLetters" checked />Lowercase
+              Letters
+            </li>
+            <li><input type="checkbox" id='includes' class="numbers" checked />Numbers</li>
+            <li>
+              <input type="checkbox" id='includes' class="specialChars"/>Special Characters
+            </li>
+            <li><input type="checkbox" id='includes' class="spaces"  />Spaces</li>
+            <li><input type="checkbox" id='includes' class="commas" />Commas</li>
+            <li><input type="checkbox" id='includes' class="punctuation"  />Punctuation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <main id="container">
+      <h1 id="inputValue"></h1>
+    </main>
+    <script src="test.js"></script>
+  </body>
+</html>
